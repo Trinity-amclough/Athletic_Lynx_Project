@@ -8,43 +8,21 @@ datasource db {
 }
 
 model User {
-  id          Int     @id @default(autoincrement())
-  email       String  @unique
+  id          Int       @id @default(autoincrement())
+  email       String    @unique
   phone       String
   name        String
   age         Int
   city        String
-  position    String
-  // profilePhoto    String?
-  createdAt   DateTime @default(now())
-  history     History?
+  position    String    @default("") 
+  createdAt   DateTime  @default(now())
+  history     History[]
 }
 
 model History {
-  id                Int     @id
+  id                Int       @id @default(autoincrement())
   description       String
-  user              User   @relation(fields: [userId], references: [id]) 
-  userId            Int    @unique    
+  createdAt         DateTime  @default(now())
+  user              User      @relation(fields: [userId], references: [id]) 
+  userId            Int          
 }
-
-// model TeamHistory {
-//   id              Int       @id @default(autoincrement())
-//   teamDate        DateTime  @default(now())  //when the player's current team status changed
-//   joinedTeam      Boolean   //want to make it so that they check 1 of 2 boxes: (joined team box) 
-//   leftTeam        Boolean   //or (left team box) -- and can only check one     
-//   teamName        String
-//   createdAt       DateTime  @default(now())
-// }
-
-// model RecordHistory {
-//   id                  Int   @id @default(autoincrement())
-//   recordDate          DateTime @default(now())  //when the player achieved this new record
-//   recordType          String    //idk what type a multiple choice would be--maybe bools for each possible record type
-//   longJump            Boolean   //longest jump
-//   highJump            Boolean   //highest jump
-//   hundredMeterDash    Boolean   //fastest 100m dash 
-//   kiloMarathon        Boolean   //fastest 1.0km marathon 
-//   oneRepMax           Boolean   //(One-Rep Max)/(1RM)
-//   record              String
-//   createdAt           DateTime @default(now())
-// }

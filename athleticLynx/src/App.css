@@ -22,15 +22,24 @@
 .userInfo {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 350px;
   margin-inline: 10px;
+  font-size: 25px;
+}
+.inputField {  
+  width: fit-content;
+  background-color: transparent;
+  border-radius: 2px;
+  border: 2px solid #3B6255;
+  margin-block: 4px;
   font-size: 25px;
 }
 .contact {
   display: flex;
   flex-direction: column;
   width: 450px;
-  height: 120px;
+  height: 150px;
   border-radius: 2px;
   border: 2px dashed #3B6255;
   padding-left: 10px;
@@ -50,13 +59,17 @@
   margin-block: 25px;
 }
 /* HISTORY SECTION */
-.editButton {
+.button {
+  display: flex;
   height: 55px;
+  justify-content: center;
+  align-items: center;
   font-size: 24px;
   color: darkslategray;
   background-color: #3b9158;
   border-radius: 15px;
   cursor: pointer;
+  gap: 10px;
 }
 .historyBar {
   display: flex;
@@ -65,8 +78,9 @@
   width: 1304px;
   height: 70px;
   margin-top: 22px;
+  margin-bottom: 8px;
   margin-inline: 37px;
-  border-bottom: 1px solid #3B6255;
+  border-bottom: 1px solid #3B6255; 
 }
 .history {
   width: 1378px;
